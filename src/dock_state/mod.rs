@@ -363,6 +363,7 @@ impl<Tab> DockState<Tab> {
         if let Some(surface) = self.focused_surface {
             self[surface].push_to_focused_leaf(tab)
         } else {
+            self.focused_surface = Some(SurfaceIndex::main());
             self[SurfaceIndex::main()].push_to_focused_leaf(tab)
         }
     }
